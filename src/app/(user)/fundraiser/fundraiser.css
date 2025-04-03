@@ -1,0 +1,14 @@
+.fund-raiser-container{
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+    margin:32px;
+    width: 60%;
+}
+.fund-raiser-container h6{
+ font-size: 32px;
+ font-weight: 500;
+ color: black;
+ margin-top: 32px;
+ margin-bottom: 32px;
+}

@@ -1,0 +1,185 @@
+.donate-blood-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 32px;
+    padding: 20px;
+  }
+  
+  .denote-blood-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cf3d3c;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(71, 67, 67, 0.933);
+    padding: 20px;
+    width: 100%;
+    min-width: 600px; /* Set a minimum width to prevent shrinking */
+    border: 16px solid rgb(245, 242, 242); 
+  }
+  
+  .denote-blood-form-loop-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    background-color: #ccc;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+  }
+  
+  .form-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 0px 10px 10px 0px;
+  }
+  
+  .form-details h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .form-section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-section legend {
+    font-weight: bold;
+    color: #555;
+    padding: 0 10px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .form-group input, .form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+    /* min-width: 200px; Set a minimum width for form fields */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  .form-group input:focus, .form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .submit-button-container {
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .submit-button {
+    padding: 12px 20px; 
+    background-color: #cf3d3c;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  form {
+    background-color: #ccc;
+  }
+  
+  .img-hamro-life {
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+  
+  .donate-blood-new {
+    background-color: #cf3d3c;
+    width: 100%;
+    height: 300px;
+  }
+  
+  nav h6 {
+    display: flex;
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-top: 32px;
+  }
+  
+  .upcoming-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    padding: 2rem; 
+  }
+  
+  .upcoming-description p {
+    font-size: 1.2rem; 
+    color: #555; 
+    max-width: 600px; 
+    margin-bottom: 2rem; 
+    line-height: 1.6; 
+  }
+  
+  .upcomming-btn {
+    background: linear-gradient(45deg, #e63946, #f4a261); 
+    color: white; 
+    padding: 0.75rem 1.5rem; 
+    font-size: 1rem; 
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    transition: background 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .upcomming-btn:hover {
+    background: linear-gradient(45deg, #d62828, #e76f51); 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+  }
+  
+  @media (max-width: 768px) {
+    .upcoming-description p {
+        font-size: 1rem; 
+        padding: 0 1rem; 
+    }
+  
+    .upcomming-btn {
+        font-size: 0.9rem; 
+        padding: 0.5rem 1rem; 
+    }
+  }

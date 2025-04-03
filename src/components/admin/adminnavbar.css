@@ -1,0 +1,72 @@
+/* Main navbar container */
+.admin-navbar {
+    display: flex;
+    padding: 1rem;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+  }
+  
+  /* Left section (menu button) */
+  .navbar-left {
+    flex: 1;
+  }
+  
+  /* Center section (links) */
+  .navbar-center {
+    flex: 3;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  /* Right section (notification) */
+  .navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Shared button styles */
+  .icon-button,
+  .nav-button,
+  .notification-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+  }
+  
+  /* Link styles */
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 12px;
+  }
+  
+  /* Hover effects */
+  .nav-link:hover,
+  .nav-button:hover {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  /* Notification badge */
+  .notification-button {
+    position: relative;
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

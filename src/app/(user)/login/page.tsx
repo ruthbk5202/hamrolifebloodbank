@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Head from 'next/head';
+import RegistrationDialog from '../../../components/user/registration/Registration'; // Import the dialog component
 import "./login.css";
 
 const LoginPage = () => {
@@ -10,10 +11,10 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(true); 
+  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(true); 
+  const [isRegistrationDialogOpen, setIsRegistrationDialogOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -28,7 +29,7 @@ const LoginPage = () => {
       }
     };
 
-    if (isDialogOpen) {
+    if (isLoginDialogOpen) {
       document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('keydown', handleEscape);
     }
@@ -37,11 +38,21 @@ const LoginPage = () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isDialogOpen]);
+  }, [isLoginDialogOpen]);
 
   const closeDialog = () => {
-    setIsDialogOpen(false);
+    setIsLoginDialogOpen(false);
     router.push('/'); 
+  };
+
+  const openRegistrationDialog = () => {
+    setIsLoginDialogOpen(false);
+    setIsRegistrationDialogOpen(true);
+  };
+
+  const closeRegistrationDialog = () => {
+    setIsRegistrationDialogOpen(false);
+    router.push('/');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -50,7 +61,7 @@ const LoginPage = () => {
     setError('');
 
     try {
-      //  authentication logic here
+      // authentication logic here
       console.log('Logging in with:', { email, password });
       
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -64,9 +75,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-page-container">
-     
-
-      {isDialogOpen && (
+      {isLoginDialogOpen && (
         <div className="dialog-overlay">
           <div className="login-dialog" ref={dialogRef}>
             <button 
@@ -78,7 +87,6 @@ const LoginPage = () => {
             </button>
             
             <div className="login-header">
-             
               <h2 className="login-title">Blood Donation Portal</h2>
               <p className="login-subtitle">Sign in to your account</p>
             </div>
@@ -140,15 +148,23 @@ const LoginPage = () => {
                 Forgot password?
               </Link>
               <span className="footer-text">Don't have an account?</span>
-              <Link href="/register" className="footer-link accent">
+              <button 
+                onClick={openRegistrationDialog}
+                className="footer-link accent"
+                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              >
                 Register now
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       )}
 
-   
+      {/* Registration Dialog */}
+      <RegistrationDialog 
+        isOpen={isRegistrationDialogOpen} 
+        onClose={closeRegistrationDialog} 
+      />
     </div>
   );
 };

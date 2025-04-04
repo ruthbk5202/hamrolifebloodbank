@@ -1,8 +1,9 @@
-export default function AdminDashboard() {
-    return (
-      <div className="p-6">
-        <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-        {/* Add charts/stats here */}
-      </div>
-    );
-  }
+// app/(admin)/admin/page.tsx
+import { redirect } from 'next/navigation';
+
+export default function AdminPage() {
+  // Redirect to default dashboard or render it directly
+  redirect('/admin/dashboard');
+  // OR if you want to render directly:
+  // return <DashboardPage />;
+}

@@ -24,6 +24,7 @@ interface MenuItem {
   id: string;
   title: string;
   icon: React.ReactNode;
+  group?: string;
 }
 
 export default function AdminSideNavbar({ isOpen }: SidebarProps) {
@@ -35,54 +36,62 @@ export default function AdminSideNavbar({ isOpen }: SidebarProps) {
     { id: "blood-donors", title: "Blood Donors", icon: <Users size={18} /> },
     { id: "blood-requests", title: "Blood Requests", icon: <ClipboardList size={18} /> },
     { id: "app-users", title: "App Users", icon: <UserCircle size={18} /> },
-    { id: "countries", title: "Countries", icon: <Globe size={18} /> },
-    { id: "states", title: "States", icon: <MapPin size={18} /> },
+    // { id: "countries", title: "", icon: <Globe size={18} /> },
+    { id: "province", title: "province", icon: <MapPin size={18} /> },
     { id: "cities", title: "Cities", icon: <Building2 size={18} /> },
     { id: "blogs", title: "Blogs", icon: <FileText size={18} /> },
     { id: "notifications", title: "Notifications", icon: <Bell size={18} /> },
     { id: "settings", title: "Settings", icon: <Settings size={18} /> },
+    { id: "logout", title: "Logout", icon: <LogOut size={18} />, group: "MISCELLANEOUS" },
   ];
+
+  const mainItems = menuItems.filter(item => !item.group);
+  const miscItems = menuItems.filter(item => item.group);
 
   return (
     <aside className={`admin-sidebar ${isOpen ? "open" : "closed"}`}>
-      <div className="sidebar-user">
-        <div className="user-avatar">
-          <UserCircle size={32} />
-        </div>
-        <div className="user-details">
-          <span className="user-role">Admin</span>
+      <div className="sidebar-header">
+        <h2 className="app-name">Blood Bank App</h2>
+        <div className="user-info">
+          <span className="user-role">admin</span>
         </div>
       </div>
 
-      <nav className="sidebar-nav">
-        <ul>
-          {menuItems.map((item) => (
-            <li
-              key={item.id}
-              className={`nav-item ${activeItem === item.id ? "active" : ""}`}
-              onClick={() => setActiveItem(item.id)}
-            >
-              <a href="#">
-                <span className="nav-icon">{item.icon}</span>
-                <span className="nav-text">{item.title}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className="sidebar-content">
+        <nav className="sidebar-nav">
+          <ul>
+            {mainItems.map((item) => (
+              <li
+                key={item.id}
+                className={`nav-item ${activeItem === item.id ? "active" : ""}`}
+                onClick={() => setActiveItem(item.id)}
+              >
+                <a href="#">
+                  <span className="nav-icon">{item.icon}</span>
+                  <span className="nav-text">{item.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      <div className="sidebar-footer">
-        <div className="footer-title">MISCELLANEOUS</div>
-        <ul>
-          <li className="nav-item">
-            <a href="#">
-              <span className="nav-icon">
-                <LogOut size={18} />
-              </span>
-              <span className="nav-text">Logout</span>
-            </a>
-          </li>
-        </ul>
+        <div className="sidebar-footer">
+          <div className="footer-title">MISCELLANEOUS</div>
+          <ul>
+            {miscItems.map((item) => (
+              <li
+                key={item.id}
+                className={`nav-item ${activeItem === item.id ? "active" : ""}`}
+                onClick={() => setActiveItem(item.id)}
+              >
+                <a href="#">
+                  <span className="nav-icon">{item.icon}</span>
+                  <span className="nav-text">{item.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </aside>
   );

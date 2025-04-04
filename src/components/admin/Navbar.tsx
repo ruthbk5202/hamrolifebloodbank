@@ -2,13 +2,17 @@
 import { FiBell } from 'react-icons/fi';
 import { IoReorderThreeOutline } from "react-icons/io5";
 import Link from "next/link";
-import './AdminNavbar.css'; // Regular CSS import
+import './AdminNavbar.css';
 
-export default function AdminNavbar() {
+interface AdminNavbarProps {
+  toggleSidebar: () => void;
+}
+
+export default function AdminNavbar({ toggleSidebar }: AdminNavbarProps) {
   return (
     <header className="admin-navbar">
       <div className="navbar-left">
-        <button className="icon-button">
+        <button className="icon-button" onClick={toggleSidebar}>
           <IoReorderThreeOutline size={20} />
         </button>
       </div>

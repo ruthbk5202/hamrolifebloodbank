@@ -1,18 +1,12 @@
-/* Main navbar container */
-.admin-navbar {
-    display: flex;
-    padding: 1rem;
-    background: white;
-    border-bottom: 1px solid #e0e0e0;
-    align-items: center;
-  }
+
+
   
-  /* Left section (menu button) */
+  
   .navbar-left {
     flex: 1;
   }
   
-  /* Center section (links) */
+
   .navbar-center {
     flex: 3;
     display: flex;
@@ -20,14 +14,14 @@
     justify-content: center;
   }
   
-  /* Right section (notification) */
+
   .navbar-right {
     flex: 1;
     display: flex;
     justify-content: flex-end;
   }
   
-  /* Shared button styles */
+ 
   .icon-button,
   .nav-button,
   .notification-button {
@@ -37,21 +31,20 @@
     padding: 8px 12px;
   }
   
-  /* Link styles */
+  
   .nav-link {
     color: #333;
     text-decoration: none;
     padding: 8px 12px;
   }
   
-  /* Hover effects */
+ 
   .nav-link:hover,
   .nav-button:hover {
     background: #f0f0f0;
     border-radius: 4px;
   }
-  
-  /* Notification badge */
+ 
   .notification-button {
     position: relative;
   }
@@ -69,4 +62,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .admin-navbar {
+    display: flex;
+    padding: 1rem;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+    height: 0px; 
+    flex-shrink: 0;
+    z-index: 10; 
   }

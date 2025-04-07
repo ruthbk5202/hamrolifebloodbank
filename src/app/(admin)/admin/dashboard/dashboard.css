@@ -1,0 +1,30 @@
+.dashboard-nav{
+    width:100%;
+    background-color: #FFC107;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+.warning{
+    display:flex;
+    flex-direction: row;
+    gap:12px;
+
+}
+.warning h5{
+    font-size: 20px;
+}
+.warning-icon{
+    width:30px;
+    height: 30px;
+    font-size: medium;
+}
+.curd h5{
+    font-size: 14px;
+}
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    gap:32px;
+}

@@ -24,6 +24,7 @@ interface MenuItem {
   id: string;
   title: string;
   icon: React.ReactNode;
+  path: string;
   group?: string;
 }
 
@@ -31,18 +32,18 @@ export default function AdminSideNavbar({ isOpen }: SidebarProps) {
   const [activeItem, setActiveItem] = useState("dashboard");
 
   const menuItems: MenuItem[] = [
-    { id: "dashboard", title: "Dashboard", icon: <LayoutDashboard size={18} /> },
-    { id: "blood-banks", title: "Blood Banks", icon: <Droplets size={18} /> },
-    { id: "blood-donors", title: "Blood Donors", icon: <Users size={18} /> },
-    { id: "blood-requests", title: "Blood Requests", icon: <ClipboardList size={18} /> },
-    { id: "app-users", title: "App Users", icon: <UserCircle size={18} /> },
+    { id: "dashboard", title: "Dashboard", icon: <LayoutDashboard size={18} />, path:"/dashboard" },
+    { id: "blood-banks", title: "Blood Banks", icon: <Droplets size={18} />, path:"/bloodbanks"},
+    { id: "blood-donors", title: "Blood Donors", icon: <Users size={18} />,path: "/blooddonars"},
+    { id: "blood-requests", title: "Blood Requests", icon: <ClipboardList size={18}/> ,path:"/bloodrequest" },
+    { id: "app-users", title: "App Users", icon: <UserCircle size={18} />,path: ""},
     // { id: "countries", title: "", icon: <Globe size={18} /> },
-    { id: "province", title: "province", icon: <MapPin size={18} /> },
-    { id: "cities", title: "Cities", icon: <Building2 size={18} /> },
-    { id: "blogs", title: "Blogs", icon: <FileText size={18} /> },
-    { id: "notifications", title: "Notifications", icon: <Bell size={18} /> },
-    { id: "settings", title: "Settings", icon: <Settings size={18} /> },
-    { id: "logout", title: "Logout", icon: <LogOut size={18} />, group: "MISCELLANEOUS" },
+    { id: "province", title: "province", icon: <MapPin size={18} />,path: "/province"},
+    { id: "cities", title: "Cities", icon: <Building2 size={18} />,path:"/cities" },
+    { id: "blogs", title: "Blogs", icon: <FileText size={18} /> ,path:"/blogs"},
+    { id: "notifications", title: "Notifications", icon: <Bell size={18} /> ,path:"/notification"},
+    { id: "settings", title: "Settings", icon: <Settings size={18} /> ,path:"/settings"},
+    { id: "logout", title: "Logout", icon: <LogOut size={18} />, group: "MISCELLANEOUS",path:"/logout" },
   ];
 
   const mainItems = menuItems.filter(item => !item.group);

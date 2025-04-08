@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import './graph.css';
 
 interface DataPoint {
@@ -9,72 +9,60 @@ interface DataPoint {
 
 interface GraphProps {
   title: string;
-  data?: DataPoint[];
-  color?: string;
-  maxYValue?: number;
-  yStep?: number;
+  data: DataPoint[];
+  color: string;
+  maxYValue: number;
+  yStep: number;
 }
 
 const Graph: React.FC<GraphProps> = ({ 
   title, 
-  data = [], 
-  color = '#007BFF',
+  data, 
+  color,
   maxYValue,
-  yStep = 0.2
+  yStep
 }) => {
-  const [graphData, setGraphData] = useState<DataPoint[]>(data);
-
-  // Calculate max value with optional override
-  const maxValue = useMemo(() => {
-    return maxYValue || Math.max(...graphData.map(item => item?.value || 0), 0.1);
-  }, [graphData, maxYValue]);
-
-  // Generate Y-axis labels
   const yLabels = useMemo(() => {
     const labels = [];
-    for (let i = maxValue; i >= 0; i -= yStep) {
+    for (let i = maxYValue; i >= 0; i -= yStep) {
       labels.push(i.toFixed(1));
     }
     return labels;
-  }, [maxValue, yStep]);
+  }, [maxYValue, yStep]);
 
   return (
-    <div className="graph-container">
+    <div className="graph-card">
       <h3 className="graph-title">{title}</h3>
       <div className="graph-content">
         <div className="y-axis">
-          {yLabels.map((label, index) => (
-            <div key={`y-label-${index}`} className="y-label">
-              {label}
-            </div>
+          {yLabels.map((label) => (
+            <div key={label} className="y-label">{label}</div>
           ))}
         </div>
-        <div className="graph-bars">
-          {graphData.map((item, index) => (
-            <div key={`bar-${index}`} className="bar-container">
+        <div className="bars-container">
+          {data.map((item) => (
+            <div key={item.month} className="bar-wrapper">
               <div
                 className="bar"
                 style={{
-                  height: `${((item?.value || 0) / maxValue) * 100}%`,
+                  height: `${(item.value / maxYValue) * 100}%`,
                   backgroundColor: color
                 }}
-                title={`${item?.month || 'N/A'}: ${item?.value || 0}`}
               />
-              <div className="x-label">{item?.month || 'N/A'}</div>
+              <div className="month-label">{item.month}</div>
             </div>
           ))}
         </div>
-        <DashboardGraphs/>
       </div>
     </div>
   );
 };
 
 interface DashboardProps {
-  showSecondGraph?: boolean;
+  className?: string;
 }
 
-export const DashboardGraphs: React.FC<DashboardProps> = ({ showSecondGraph = true }) => {
+export const DashboardGraphs: React.FC<DashboardProps> = ({ className }) => {
   const usersData = useMemo(() => [
     { month: 'Nov', value: 1.2 },
     { month: 'Dec', value: 1.5 },
@@ -94,7 +82,7 @@ export const DashboardGraphs: React.FC<DashboardProps> = ({ showSecondGraph = tr
   ], []);
 
   return (
-    <div className="dashboard-graphs">
+    <div className={`dashboard-graphs ${className || ''}`}>
       <Graph 
         title="Last 6 months users joining" 
         data={usersData}
@@ -102,17 +90,15 @@ export const DashboardGraphs: React.FC<DashboardProps> = ({ showSecondGraph = tr
         maxYValue={2}
         yStep={0.2}
       />
-      {showSecondGraph && (
-        <Graph 
-          title="Last 6 months donor joining" 
-          data={donorsData}
-          color="#34A853"
-          maxYValue={1}
-          yStep={0.1}
-        />
-      )}
+      <Graph 
+        title="Last 6 months donor joining" 
+        data={donorsData}
+        color="#34A853"
+        maxYValue={1}
+        yStep={0.1}
+      />
     </div>
   );
 };
 
-export default Graph;
+export default DashboardGraphs;

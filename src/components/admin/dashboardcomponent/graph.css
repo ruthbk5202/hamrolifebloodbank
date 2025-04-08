@@ -1,24 +1,25 @@
-.graph-container {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 10px;
-  width: calc(50% - 20px);
-}
 
 .dashboard-graphs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
   width: 100%;
 }
 
+
+.graph-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  height: 100%;
+}
+
 .graph-title {
-  margin: 0 0 15px 0;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   color: #333;
-  font-weight: 500;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -27,32 +28,33 @@
   height: 250px;
 }
 
+
 .y-axis {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
-  padding-right: 10px;
-  border-right: 1px solid #e0e0e0;
+  padding-right: 12px;
+  margin-right: 12px;
+  border-right: 1px solid #eee;
 }
 
 .y-label {
   font-size: 12px;
   color: #666;
   text-align: right;
-  padding-right: 5px;
 }
 
-.graph-bars {
+
+.bars-container {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  flex-grow: 1;
-  padding-left: 15px;
-  height: 100%;
+  flex: 1;
+  padding-bottom: 24px;
 }
 
-.bar-container {
+.bar-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,39 +63,30 @@
 }
 
 .bar {
-  width: 30px;
+  width: 32px;
   border-radius: 4px 4px 0 0;
   transition: height 0.3s ease;
 }
 
-.x-label {
-  margin-top: 10px;
+.month-label {
+  margin-top: 8px;
   font-size: 12px;
   color: #666;
-  text-align: center;
 }
 
-@media (max-width: 768px) {
-  .graph-container {
-    width: 100%;
-    margin: 10px 0;
+
+@media (max-width: 900px) {
+  .dashboard-graphs {
+    grid-template-columns: 1fr;
   }
-  
+}
+
+@media (max-width: 500px) {
   .graph-content {
     height: 200px;
   }
   
   .bar {
-    width: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .graph-content {
-    height: 180px;
-  }
-  
-  .y-label, .x-label {
-    font-size: 10px;
+    width: 24px;
   }
 }

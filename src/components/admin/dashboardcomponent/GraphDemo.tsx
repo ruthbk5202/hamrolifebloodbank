@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Graph from './Graph';
 import './graphdemo.css';
 
-// Sample initial data
+
 const initialUserData = [
   { month: 'Nov', value: 1.2 },
   { month: 'Dec', value: 0 },
@@ -26,7 +26,7 @@ const GraphDemo: React.FC = () => {
   const [donorData, setDonorData] = useState(initialDonorData);
   const [timeFilter, setTimeFilter] = useState<'6months' | '3months' | '1month'>('6months');
 
-  // Simulate data change based on user interaction
+  
   const updateUserData = (month: string, amount: number) => {
     setUserData(prevData =>
       prevData.map(item =>
@@ -43,17 +43,17 @@ const GraphDemo: React.FC = () => {
     );
   };
 
-  // Filter data based on time range
+  
   const filterData = (data: typeof userData) => {
     if (timeFilter === '3months') {
-      return data.slice(3); // Last 3 months
+      return data.slice(3); 
     } else if (timeFilter === '1month') {
-      return data.slice(5); // Last month
+      return data.slice(5); 
     }
-    return data; // All 6 months
+    return data; 
   };
 
-  // Reset all data
+ 
   const resetData = () => {
     setUserData(initialUserData);
     setDonorData(initialDonorData);
@@ -86,16 +86,18 @@ const GraphDemo: React.FC = () => {
       </div>
 
       <div className="graphs-container">
-        <Graph
+     
+        {/* <Graph
           title="Last 6 months users joining"
           data={filterData(userData)}
           color="#007BFF"
         />
+
         <Graph
           title="Last 6 months donor joining"
           data={filterData(donorData)}
           color="#007BFF"
-        />
+        /> */}
       </div>
 
       <div className="demo-controls">

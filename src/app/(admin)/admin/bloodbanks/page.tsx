@@ -2,7 +2,11 @@ import React from 'react';
 
  const BloodBanksPage = () => {
   return (
-    <div>BloodBanksPage</div>
+    <div>
+      <div>
+        <h2>this is a blood bank page which i will do tommarow</h2>
+      </div>
+    </div>
   )
 };
 export default BloodBanksPage;

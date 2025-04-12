@@ -1,0 +1,166 @@
+.settings-dashboard-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 20px;
+    padding: 0;
+  }
+  
+  .app-settings {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 14px;
+    align-items: center;
+  }
+  
+  .app-settings-child-btn {
+    color: #6c757d;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .app-settings-btn {
+    background-color: #007bff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .form-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: #212529;
+    font-size: 14px;
+    font-weight: 600;
+    width: 150px;
+    text-align: right;
+    margin-right: 80px;
+  }
+  
+  input[type="text"], [type="email"] ,[type="number"]{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 38px;
+    padding: 6px 12px;
+    flex: 1;
+    max-width: 900px;
+  }
+  
+  input[type="file"] {
+    border: none;
+    padding: 6px 0;
+  }
+  
+  button[type="submit"] {
+    background-color: #17A2BB;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    /* border-radius: 4px; */
+    cursor: pointer;
+    margin-left: 230px;
+    height:34px;
+    width: 900px;
+  }
+  
+  img {
+    margin-left: 170px;
+    margin-bottom: 20px;
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .form-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    color: #212529;
+    font-size: 14px;
+    font-weight: 600;
+    width: 150px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.file-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-input {
+    display: none; /* Hide the default file input */
+}
+
+.file-input-label {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #495057;
+}
+
+.file-input-label:hover {
+    background-color: #e9ecef;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #6c757d;
+    margin-left: 5px;
+}
+.text-editor-container {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .ProseMirror {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-height: 200px;
+  }
+  
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .toolbar button {
+    padding: 4px 8px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .toolbar button.active {
+    background: #e0e0e0;
+  }

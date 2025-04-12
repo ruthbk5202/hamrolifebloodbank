@@ -12,8 +12,8 @@ const CopyrightFooter: React.FC = () => {
         <p>
           Copyright © 2018-{currentYear} <a >almainlmab.com</a> by Nudassar. 
         </p>
-        <div>
-        <p className='copyright-p'> All rights reserved.</p>
+        <div className='copyright-p'>
+        <p> All rights reserved.</p>
        </div>
         </div>
         </div>

@@ -1,121 +1,47 @@
 "use client";
 import React, {  useState } from "react";
-import { TbFileImport } from "react-icons/tb";
+
 import { IoAddOutline } from "react-icons/io5";
 import { RiArrowUpDownLine } from "react-icons/ri";
-import { GrView } from "react-icons/gr";
+
 import { TiEdit } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
 import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
-import "./cities.css";
-const ManageCitiesPage = () => {
+import "./adminblogs.css";
+const AdminBlogs = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [isAddBloodBankOpened, setIsAddBloodBankOpened] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   
-  interface ManageCities {
+  interface AdminBlogs {
     id: number;
-    name: string;
+    title: string;
    
-    Province: string;
-    
+    thumbnail: string;
+    postedat: string;
+   
   }
 
-  const managecities: ManageCities[] = [
+  const adminblogs: AdminBlogs[] = [
     {
       id: 31,
-      name: "Central Blood Bank",
-     
-      Province: "Gouvernorat de Ariana",
-     
-    },
-    {
-      id: 34,
-      name: "City Hospital Bank",
-     
-      Province: "Lowa",
-     
-    },
-    {
-      id: 42,
-      name: "kjk",
-     
-      Province: "Maluku",
-    
-    
-    },
-    
-    {
-      id: 43,
-      name: "kjk",
-    
-      Province: "Maluku",
-    
+     title: "Central Blood Bank",
+   
+      thumbnail: "Ghakar",
       
-    },
-    
-    {
-      id: 44,
-      name: "kjk",
-     
-      Province: "Maluku",
-    
+ postedat: "dec 2023"
      
     },
     
-    {
-      id: 45,
-      name: "kjk",
-    
-      Province: "Maluku",
-    
-      
-    },
-    
-    {
-      id: 46,
-      name: "kjk",
-  
-      Province: "Maluku",
-    
-   
-    },
-    
-    {
-      id: 47,
-      name: "kjk",
-    
-      Province: "Maluku",
-    
-     
-    },
-    
-    {
-      id: 48,
-      name: "kjk",
-     
-      Province: "Maluku",
-     
-    },
-    
-    {
-      id: 49,
-      name: "kjk",
-   
-      Province: "Maluku",
-    
-    
-    },
-   
   ];
 
   
   const indexOfLastEntry = currentPage * entriesPerPage;
   const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
-  const currentEntries = managecities.slice(indexOfFirstEntry, indexOfLastEntry);
-  const totalPages = Math.ceil(managecities.length / entriesPerPage);
+  const currentEntries = adminblogs.slice(indexOfFirstEntry, indexOfLastEntry);
+  const totalPages = Math.ceil(adminblogs.length / entriesPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -129,7 +55,7 @@ const ManageCitiesPage = () => {
   return (
     <div className="blood-bank-container">
       <div className="manage-blood-bank-div">
-        <h1>Manage Cities</h1>
+        <h1>Manage Blogs</h1>
         <div className="btn-import-and-add">
           {/* <button className="import" onClick={() => setIsModelOpen(true)}>
             <TbFileImport size={18} />
@@ -137,7 +63,7 @@ const ManageCitiesPage = () => {
           </button> */}
           <button className="add" onClick={() => setIsAddBloodBankOpened(true)}>
             <IoAddOutline size={18} />
-            Add City
+            Add Blogs
           </button>
         </div>
       </div>
@@ -180,20 +106,29 @@ const ManageCitiesPage = () => {
               </th>
               <th>
                 <div className="table-header-cell">
-                  <h1>Name</h1>
+                  <h1>Title</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
                 <div className="table-header-cell">
-                  <h1>Province</h1>
+                  <h1>Thumbnail</h1>
+                  <RiArrowUpDownLine />
+                </div>
+              </th>
+              <th>
+                <div className="table-header-cell">
+                  <h1>Posted at</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               
+              
+              
+              
               <th>
                 <div className="table-header-cell">
-                  <h1>Actions</h1>
+                  <h1>Action</h1>
                 </div>
               </th>
             </tr>
@@ -202,10 +137,10 @@ const ManageCitiesPage = () => {
             {currentEntries.map((bank) => (
               <tr key={bank.id}>
                 <td>{bank.id}</td>
-                <td>{bank.name}</td>
-              
-                <td>{bank.Province}</td>
-              
+                <td>{bank.title}</td>
+                <td>{bank.thumbnail}</td>
+                <td>{bank.postedat}</td>
+               
               
                 <td>
                   <div className="action-buttons">
@@ -226,7 +161,7 @@ const ManageCitiesPage = () => {
 
       <div className="table-footer">
         <div className="entries-info">
-          Showing {indexOfFirstEntry + 1} to {Math.min(indexOfLastEntry, managecities.length)} of {managecities.length} entries
+          Showing {indexOfFirstEntry + 1} to {Math.min(indexOfLastEntry, adminblogs.length)} of {adminblogs.length} entries
         </div>
         <div className="pagination">
           <button 
@@ -255,7 +190,7 @@ const ManageCitiesPage = () => {
         </div>
       </div>
 
-      {/* Modals */}
+   
       {isModelOpen && (
         <ImportBloodBanks onClose={() => setIsModelOpen(false)} />
       )}
@@ -267,4 +202,4 @@ const ManageCitiesPage = () => {
   );
 };
 
-export default ManageCitiesPage;
+export default AdminBlogs;

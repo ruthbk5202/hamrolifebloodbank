@@ -7,11 +7,14 @@ import RecentRequest from "../../../../components/admin/dashboardcomponent/Recen
 import RecentUsers from "../../../../components/admin/dashboardcomponent/RecentUsers";
 import RecentDonors from '@/components/admin/dashboardcomponent/RecentDonors';
 import CopyrightFooter from "@/components/admin/dashboardcomponent/Copyright";
+import DashboardNav from '@/components/admin/dashboardcomponent/DashboardNav';
 import "./dashboard.css";
-const DashboardPage = () => {
+const DashboardPage = ({
+  children
+}:{children:React.ReactNode}) => {
   return (
     <div>
-      <div className='dashboard-container'>
+      {/* <div className='dashboard-container'>
       <div className='dashboard-nav'>
       <div className='warning'>
       <IoWarningOutline className='warning-icon' />
@@ -21,7 +24,8 @@ const DashboardPage = () => {
       <div className='curd'>
         <h5>Some CURD or Settings Are not allowed in demo </h5>
         </div>
-      </div>
+      </div> */}
+      <DashboardNav/>
       <Card/>
       <Graph/>
 
@@ -29,8 +33,9 @@ const DashboardPage = () => {
       <RecentUsers/>
       <RecentDonors/>
       <CopyrightFooter/>
+    
     </div>
-    </div>
+  
   )
 }
 

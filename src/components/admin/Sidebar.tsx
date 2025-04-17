@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   LayoutDashboard,
   Droplets,
   Users,
   ClipboardList,
   UserCircle,
-  Globe,
   MapPin,
   Building2,
   FileText,
@@ -29,21 +30,21 @@ interface MenuItem {
 }
 
 export default function AdminSideNavbar({ isOpen }: SidebarProps) {
-  const [activeItem, setActiveItem] = useState("dashboard");
+  const pathname = usePathname();
+  const isActive = (path: string) => pathname === path || pathname.startsWith(`/admin/${path}`);
 
   const menuItems: MenuItem[] = [
-    { id: "dashboard", title: "Dashboard", icon: <LayoutDashboard size={18} />, path:"/dashboard" },
-    { id: "blood-banks", title: "Blood Banks", icon: <Droplets size={18} />, path:"/bloodbanks"},
-    { id: "blood-donors", title: "Blood Donors", icon: <Users size={18} />,path: "/blooddonars"},
-    { id: "blood-requests", title: "Blood Requests", icon: <ClipboardList size={18}/> ,path:"/bloodrequest" },
-    { id: "app-users", title: "App Users", icon: <UserCircle size={18} />,path: ""},
-    // { id: "countries", title: "", icon: <Globe size={18} /> },
-    { id: "province", title: "province", icon: <MapPin size={18} />,path: "/province"},
-    { id: "cities", title: "Cities", icon: <Building2 size={18} />,path:"/cities" },
-    { id: "blogs", title: "Blogs", icon: <FileText size={18} /> ,path:"/blogs"},
-    { id: "notifications", title: "Notifications", icon: <Bell size={18} /> ,path:"/notification"},
-    { id: "settings", title: "Settings", icon: <Settings size={18} /> ,path:"/settings"},
-    { id: "logout", title: "Logout", icon: <LogOut size={18} />, group: "MISCELLANEOUS",path:"/logout" },
+    { id: "dashboard", title: "Dashboard", icon: <LayoutDashboard size={18} />, path: "/dashboard" },
+    { id: "blood-banks", title: "Blood Banks", icon: <Droplets size={18} />, path: "/bloodbanks" },
+    { id: "blood-donors", title: "Blood Donors", icon: <Users size={18} />, path: "/blooddonars" },
+    { id: "blood-requests", title: "Blood Requests", icon: <ClipboardList size={18}/>, path: "/bloodrequest" },
+    { id: "app-users", title: "App Users", icon: <UserCircle size={18} />, path: "/appusers" },
+    { id: "province", title: "Province", icon: <MapPin size={18} />, path: "/province" },
+    { id: "cities", title: "Cities", icon: <Building2 size={18} />, path: "/cities" },
+    { id: "blogs", title: "Blogs", icon: <FileText size={18} />, path: "/blogs" },
+    { id: "notifications", title: "Notifications", icon: <Bell size={18} />, path: "/notification" },
+    { id: "settings", title: "Settings", icon: <Settings size={18} />, path: "/settings" },
+    { id: "logout", title: "Logout", icon: <LogOut size={18} />, group: "MISCELLANEOUS", path: "/logout" },
   ];
 
   const mainItems = menuItems.filter(item => !item.group);
@@ -64,13 +65,12 @@ export default function AdminSideNavbar({ isOpen }: SidebarProps) {
             {mainItems.map((item) => (
               <li
                 key={item.id}
-                className={`nav-item ${activeItem === item.id ? "active" : ""}`}
-                onClick={() => setActiveItem(item.id)}
+                className={`nav-item ${isActive(item.path) ? "active" : ""}`}
               >
-                <a href="#">
+                <Link href={`/admin${item.path}`}>
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-text">{item.title}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -82,13 +82,12 @@ export default function AdminSideNavbar({ isOpen }: SidebarProps) {
             {miscItems.map((item) => (
               <li
                 key={item.id}
-                className={`nav-item ${activeItem === item.id ? "active" : ""}`}
-                onClick={() => setActiveItem(item.id)}
+                className={`nav-item ${isActive(item.path) ? "active" : ""}`}
               >
-                <a href="#">
+                <Link href={`/admin/${item.path}`}>
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-text">{item.title}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

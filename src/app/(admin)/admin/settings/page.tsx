@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import "./settings.css";
+import TextEditor from '@/components/admin/dashboardcomponent/TextEditor';
 
 const Settings = () => {
     const [fileName, setFileName] = useState<string>("No file chosen");
@@ -64,17 +65,8 @@ const Settings = () => {
                         <div className="form-input">
       <label>App Description:-</label>
       <div className="text-editor-container">
-        <div className="toolbar">
-          <button
-            onClick={() => editor?.chain().focus().toggleBold().run()}
-            className={editor?.isActive('bold') ? 'active' : ''}
-          >
-            Bold
-          </button>
-          {/* Add other toolbar buttons as needed */}
-        </div>
-        <EditorContent editor={editor} />
-      </div>
+        <TextEditor/>
+    </div>
     </div>
                         <div className='form-input'>
                             <label htmlFor="app-version">App Version:-</label>

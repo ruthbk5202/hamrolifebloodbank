@@ -322,7 +322,7 @@ const BloodRequestPage = () => {
   return (
     <div className="blood-bank-container">
       <div className="manage-blood-bank-div">
-        <h1>Manage Blood Banks</h1>
+        <h1>Manage Blood Requests</h1>
         <div className="btn-import-and-add">
           <button className="import" onClick={() => setIsModelOpen(true)}>
             <TbFileImport size={18} />
@@ -330,7 +330,7 @@ const BloodRequestPage = () => {
           </button>
           <button className="add" onClick={() => setIsAddBloodBankOpened(true)}>
             <IoAddOutline size={18} />
-            Add Blood Bank
+            Add Blood Request
           </button>
         </div>
       </div>

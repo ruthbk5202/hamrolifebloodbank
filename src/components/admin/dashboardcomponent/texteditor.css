@@ -1,0 +1,23 @@
+/* globals.css or your CSS module */
+.text-editor-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .toolbar-btn {
+    min-width: 40px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .content-area {
+    line-height: 1.6;
+    font-family: 'Times New Roman', serif;
+  }
+  
+  .content-area:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+  }

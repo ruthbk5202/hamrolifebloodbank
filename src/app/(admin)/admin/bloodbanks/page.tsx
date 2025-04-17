@@ -1,7 +1,7 @@
 "use client";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { TbFileImport } from "react-icons/tb";
-import { IoAddOutline } from "react-icons/io5";
+import { IoAddOutline, IoCheckmark, IoClose } from "react-icons/io5";
 import { RiArrowUpDownLine } from "react-icons/ri";
 import { GrView } from "react-icons/gr";
 import { TiEdit } from "react-icons/ti";
@@ -9,11 +9,13 @@ import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
 import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
 import "./bloodbanks.css";
+
 const BloodBanksPage = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [isAddBloodBankOpened, setIsAddBloodBankOpened] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
+  const [isAdding, setIsAdding] = useState(false);
   
   interface BloodBank {
     id: number;
@@ -25,7 +27,7 @@ const BloodBanksPage = () => {
     status: "Active" | "Inactive";
   }
 
-  const bloodBanks: BloodBank[] = [
+  const [bloodBanks, setBloodBanks] = useState<BloodBank[]>([
     {
       id: 31,
       name: "Central Blood Bank",
@@ -49,92 +51,84 @@ const BloodBanksPage = () => {
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-    
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-    
     {
       id: 43,
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-    
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-    
     {
       id: 44,
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-    
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-    
     {
       id: 45,
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-    
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-    
     {
       id: 46,
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-    
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-    
     {
       id: 47,
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-    
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-    
     {
       id: 48,
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-     
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-    
     {
       id: 49,
       name: "kjk",
       city: "Ambon",
       Province: "Maluku",
-    
       contact: "hjh",
       latLon: "-3.638666, 128.168856",
       status: "Active",
     },
-   
-  ];
+  ]);
 
-  
+  const [newBloodBank, setNewBloodBank] = useState<Omit<BloodBank, 'id'> & { id?: number }>({
+    name: "",
+    city: "",
+    Province: "",
+    contact: "",
+    latLon: "",
+    status: "Active",
+  });
+
   const indexOfLastEntry = currentPage * entriesPerPage;
   const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
   const currentEntries = bloodBanks.slice(indexOfFirstEntry, indexOfLastEntry);
@@ -147,6 +141,49 @@ const BloodBanksPage = () => {
   const handleEntriesPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setEntriesPerPage(Number(e.target.value));
     setCurrentPage(1);
+  };
+
+  const handleAddNew = () => {
+    setIsAdding(true);
+  };
+
+  const handleCancelAdd = () => {
+    setIsAdding(false);
+    setNewBloodBank({
+      name: "",
+      city: "",
+      Province: "",
+      contact: "",
+      latLon: "",
+      status: "Active",
+    });
+  };
+
+  const handleSaveNew = () => {
+    const newId = Math.max(...bloodBanks.map(b => b.id), 0) + 1;
+    const bankToAdd = {
+      ...newBloodBank,
+      id: newId,
+    } as BloodBank;
+    
+    setBloodBanks([...bloodBanks, bankToAdd]);
+    setIsAdding(false);
+    setNewBloodBank({
+      name: "",
+      city: "",
+      Province: "",
+      contact: "",
+      latLon: "",
+      status: "Active",
+    });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setNewBloodBank({
+      ...newBloodBank,
+      [name]: value,
+    });
   };
 
   return (
@@ -186,7 +223,6 @@ const BloodBanksPage = () => {
           <input 
             type="text" 
             placeholder="Search blood banks..." 
-            
           />
         </div>
       </div>
@@ -273,9 +309,32 @@ const BloodBanksPage = () => {
                 </td>
               </tr>
             ))}
+               <tr>
+               <td><input type="text" placeholder="Id"/></td>
+               <td><input type="email" placeholder="Name"/></td>
+               <td><input type="text" placeholder="City"/></td>
+               <td><input type="text" placeholder="Province"/></td>
+               <td><input type="text" placeholder="Contact"/></td>
+               <td><input type="text" placeholder="Lat/Lon"/></td>
+               <td><input type="text" placeholder="Status"/></td>
+               <td><input type="text" placeholder="Actions"/></td>
+             </tr>
+             <tr>
+           
+  <td colSpan={8}>
+    <input 
+      type="text"
+      placeholder="type and hit enter to search the table"
+      className="search-for-table"
+      style={{ width: "100%", border:"none" ,outline:"none" }}
+    />
+  </td>
+</tr>
           </tbody>
         </table>
       </div>
+
+      
 
       <div className="table-footer">
         <div className="entries-info">

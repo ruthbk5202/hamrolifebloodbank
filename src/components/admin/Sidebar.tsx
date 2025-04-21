@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { FaMapMarkedAlt } from "react-icons/fa";
 import Link from "next/link";
 import {
   LayoutDashboard,
@@ -40,6 +41,8 @@ export default function AdminSideNavbar({ isOpen }: SidebarProps) {
     { id: "blood-requests", title: "Blood Requests", icon: <ClipboardList size={18}/>, path: "/bloodrequest" },
     { id: "app-users", title: "App Users", icon: <UserCircle size={18} />, path: "/appusers" },
     { id: "province", title: "Province", icon: <MapPin size={18} />, path: "/province" },
+    { id: "districts", title: "Districts", icon: <FaMapMarkedAlt   size={18} />, path: "/districts" },
+    
     { id: "cities", title: "Cities", icon: <Building2 size={18} />, path: "/cities" },
     { id: "blogs", title: "Blogs", icon: <FileText size={18} />, path: "/blogs" },
     { id: "notifications", title: "Notifications", icon: <Bell size={18} />, path: "/notification" },

@@ -59,4 +59,4 @@ const AddBloodBank:React.FC<AddBloodBankProps> = ({onClose}) => {
   )
 }
 
-export default AddBloodBank
+export default AddBloodBank;

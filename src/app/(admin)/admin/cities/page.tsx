@@ -1,113 +1,32 @@
 "use client";
 import React, {  useState } from "react";
-import { TbFileImport } from "react-icons/tb";
+
 import { IoAddOutline } from "react-icons/io5";
 import { RiArrowUpDownLine } from "react-icons/ri";
-import { GrView } from "react-icons/gr";
+
 import { TiEdit } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
-import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
+import Addcity from "../../../../components/admin/dashboardcomponent/Addcitiy";
 import "./cities.css";
+import DashboardNav from "@/components/admin/dashboardcomponent/DashboardNav";
 const ManageCitiesPage = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
-  const [isAddBloodBankOpened, setIsAddBloodBankOpened] = useState(false);
+  const [isAddCityOpened, setIsAddCityOpened] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   
   interface ManageCities {
     id: number;
     name: string;
-   
+    city:string;
     Province: string;
+    districts:string;
     
   }
 
   const managecities: ManageCities[] = [
-    {
-      id: 31,
-      name: "Central Blood Bank",
-     
-      Province: "Gouvernorat de Ariana",
-     
-    },
-    {
-      id: 34,
-      name: "City Hospital Bank",
-     
-      Province: "Lowa",
-     
-    },
-    {
-      id: 42,
-      name: "kjk",
-     
-      Province: "Maluku",
-    
-    
-    },
-    
-    {
-      id: 43,
-      name: "kjk",
-    
-      Province: "Maluku",
-    
-      
-    },
-    
-    {
-      id: 44,
-      name: "kjk",
-     
-      Province: "Maluku",
-    
-     
-    },
-    
-    {
-      id: 45,
-      name: "kjk",
-    
-      Province: "Maluku",
-    
-      
-    },
-    
-    {
-      id: 46,
-      name: "kjk",
   
-      Province: "Maluku",
-    
-   
-    },
-    
-    {
-      id: 47,
-      name: "kjk",
-    
-      Province: "Maluku",
-    
-     
-    },
-    
-    {
-      id: 48,
-      name: "kjk",
-     
-      Province: "Maluku",
-     
-    },
-    
-    {
-      id: 49,
-      name: "kjk",
-   
-      Province: "Maluku",
-    
-    
-    },
    
   ];
 
@@ -128,14 +47,12 @@ const ManageCitiesPage = () => {
 
   return (
     <div className="blood-bank-container">
+      {/* <DashboardNav/> */}
       <div className="manage-blood-bank-div">
         <h1>Manage Cities</h1>
         <div className="btn-import-and-add">
-          {/* <button className="import" onClick={() => setIsModelOpen(true)}>
-            <TbFileImport size={18} />
-            Import from Excel
-          </button> */}
-          <button className="add" onClick={() => setIsAddBloodBankOpened(true)}>
+         
+          <button className="add" onClick={() => setIsAddCityOpened(true)}>
             <IoAddOutline size={18} />
             Add City
           </button>
@@ -190,6 +107,12 @@ const ManageCitiesPage = () => {
                   <RiArrowUpDownLine />
                 </div>
               </th>
+              <th>
+                <div className="table-header-cell">
+                  <h1>Districts</h1>
+                  <RiArrowUpDownLine />
+                </div>
+              </th>
               
               <th>
                 <div className="table-header-cell">
@@ -203,7 +126,9 @@ const ManageCitiesPage = () => {
               <tr key={bank.id}>
                 <td>{bank.id}</td>
                 <td>{bank.name}</td>
+                <td>{bank.city}</td>
               
+                <td>{bank.districts}</td>
                 <td>{bank.Province}</td>
               
               
@@ -260,8 +185,8 @@ const ManageCitiesPage = () => {
         <ImportBloodBanks onClose={() => setIsModelOpen(false)} />
       )}
       
-      {isAddBloodBankOpened && (
-        <AddBloodBank onClose={() => setIsAddBloodBankOpened(false)} />
+      {isAddCityOpened && (
+        <Addcity onClose={() => setIsAddCityOpened(false)} />
       )}
     </div>
   );

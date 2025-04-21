@@ -8,6 +8,7 @@ import { TiEdit } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
 import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
+import DashboardNav from "@/components/admin/dashboardcomponent/DashboardNav";
 import "./appuser.css";
 const AppUsersPage = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
@@ -248,6 +249,7 @@ const AppUsersPage = () => {
 
   return (
     <div className="blood-bank-container">
+      <DashboardNav/>
       <div className="manage-blood-bank-div">
         <h1>Manage App Users</h1>
         <div className="btn-import-and-add">

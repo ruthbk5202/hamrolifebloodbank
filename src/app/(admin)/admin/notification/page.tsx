@@ -9,6 +9,7 @@ import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
 import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
 import "./adminnotification.css";
+import DashboardNav from "@/components/admin/dashboardcomponent/DashboardNav";
 const AdminNotification = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [isAddBloodBankOpened, setIsAddBloodBankOpened] = useState(false);
@@ -55,6 +56,7 @@ const AdminNotification = () => {
 
   return (
     <div className="blood-bank-container">
+      <DashboardNav/>
       <div className="manage-blood-bank-div">
         <h1>Notifications</h1>
         <div className="btn-import-and-add">

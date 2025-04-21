@@ -9,6 +9,7 @@ import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
 import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
 import "./bloodbanks.css";
+import DashboardNav from "@/components/admin/dashboardcomponent/DashboardNav";
 
 const BloodBanksPage = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
@@ -187,6 +188,8 @@ const BloodBanksPage = () => {
   };
 
   return (
+    <div>
+      {/* <DashboardNav/> */}
     <div className="blood-bank-container">
       <div className="manage-blood-bank-div">
         <h1>Manage Blood Banks</h1>
@@ -375,6 +378,7 @@ const BloodBanksPage = () => {
       {isAddBloodBankOpened && (
         <AddBloodBank onClose={() => setIsAddBloodBankOpened(false)} />
       )}
+    </div>
     </div>
   );
 };

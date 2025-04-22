@@ -1,13 +1,24 @@
 "use client";
-import React, { useState } from 'react';
-import { useEditor, EditorContent } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
+import React, { useState, useMemo, useRef } from 'react';
+import { Jodit } from 'jodit';
+import JoditEditor from 'jodit-react';
 import "./settings.css";
-import TextEditor from '@/components/admin/dashboardcomponent/TextEditor';
 
 const Settings = () => {
     const [fileName, setFileName] = useState<string>("No file chosen");
-    const [appDescription, setAppDescription] = useState<string>("");
+    const [content, setContent] = useState('Enter your app description here...');
+    const editor = useRef(null);
+
+    const config = useMemo(() => ({
+        readonly: false,
+        placeholder: 'Enter your app description here...',
+        // Add any other Jodit config options here
+        buttons: ['bold', 'italic', 'underline', 'link', 'unlink', 'ul', 'ol', 'font', 'fontsize', 'image'],
+        uploader: {
+            insertImageAsBase64URI: true
+        },
+        height: 400
+    }), []);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
@@ -16,15 +27,6 @@ const Settings = () => {
             setFileName("No file chosen");
         }
     };
-    const [content, setContent] = useState('<p>Enter your app description here...</p>');
-
-    const editor = useEditor({
-      extensions: [StarterKit],
-      content,
-      onUpdate: ({ editor }) => {
-        setContent(editor.getHTML());
-      },
-    });
 
     return (
         <div>
@@ -63,11 +65,17 @@ const Settings = () => {
                             </div>
                         </div>
                         <div className="form-input">
-      <label>App Description:-</label>
-      <div className="text-editor-container">
-        <TextEditor/>
-    </div>
-    </div>
+                            <label>App Description:-</label>
+                            <div className="text-editor-container">
+                                <JoditEditor
+                                    ref={editor}
+                                    value={content}
+                                    config={config}
+                                    onBlur={newContent => setContent(newContent)}
+                                    onChange={newContent => {}}
+                                />
+                            </div>
+                        </div>
                         <div className='form-input'>
                             <label htmlFor="app-version">App Version:-</label>
                             <input id="app-version" type="text" placeholder='3.11.1' />

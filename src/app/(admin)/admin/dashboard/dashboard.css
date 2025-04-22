@@ -26,6 +26,6 @@
 }
 .dashboard-container{
     display: flex;
-    flex-direction: column;
-    gap:32px;
-}
+    flex-direction: column;}
+    /* gap:32px;
+} */

@@ -168,7 +168,7 @@ const Nav = () => {
             onMouseLeave={() => setResourceDropdown(false)}
           >
             <div className="resource">
-              <a href="/">resources</a>
+              <a href="/">Resources</a>
 
               <RiArrowDropDownLine className="dropdown-icon" />
             </div>

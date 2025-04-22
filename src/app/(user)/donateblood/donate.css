@@ -17,7 +17,7 @@
     box-shadow: 0 4px 8px rgba(71, 67, 67, 0.933);
     padding: 20px;
     width: 100%;
-    min-width: 600px; /* Set a minimum width to prevent shrinking */
+    min-width: 600px; 
     border: 16px solid rgb(245, 242, 242); 
   }
   
@@ -76,9 +76,8 @@
     outline: none;
     width: 100%;
     /* min-width: 200px; Set a minimum width for form fields */
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    box-sizing: border-box; 
   }
-  
   .form-group input:focus, .form-group select:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -183,3 +182,67 @@
         padding: 0.5rem 1rem; 
     }
   }
+
+.form-group.error input,
+.form-group.error select {
+  border-color: #ff3860;
+}
+
+.form-group.error .error-message {
+  color: #ff3860;
+  font-size: 0.8em;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.invalid {
+  border-color: #ff3860 !important;
+}
+
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input, 
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+
+.submit-button {
+  background-color: #e63946;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #c1121f;
+}
+
+
+@media (max-width: 768px) {
+  .denote-blood-form-loop-container {
+    flex-direction: column;
+  }
+  
+  .img-hamro-life {
+    margin-bottom: 2rem;
+  }
+}

@@ -47,7 +47,7 @@ const DonateBlood = () => {
       ...formData,
       [name]: value,
     });
-    // Clear error when user starts typing
+   
     if (errors[name as keyof Errors]) {
       setErrors({
         ...errors,
@@ -123,10 +123,10 @@ const DonateBlood = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // Here you would typically send the data to your API
+      
       console.log("Form submitted:", formData);
       alert("Thank you for your donation registration!");
-      // Reset form after submission
+    
       setFormData({
         name: "",
         dob: "",
@@ -136,7 +136,7 @@ const DonateBlood = () => {
         bloodGroup: "",
         address: "",
       });
-      // Optionally redirect or show success message
+  
     }
   };
 

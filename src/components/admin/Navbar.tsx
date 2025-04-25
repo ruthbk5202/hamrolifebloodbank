@@ -2,7 +2,7 @@
 import { FiBell } from 'react-icons/fi';
 import { IoReorderThreeOutline } from "react-icons/io5";
 import Link from "next/link";
-import './AdminNavbar.css';
+import './adminnavbar.css';
 
 interface AdminNavbarProps {
   toggleSidebar: () => void;

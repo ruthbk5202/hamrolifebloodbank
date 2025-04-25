@@ -6,17 +6,18 @@ import { RiArrowUpDownLine } from "react-icons/ri";
 import { GrView } from "react-icons/gr";
 import { TiEdit } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
-import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
-import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
-import "../bloodbanks/bloodbanks.css";
-import DashboardNav from "@/components/admin/dashboardcomponent/DashboardNav";
-const BloodBanksPage = () => {
+import Importblooddonor from "../../../../components/admin/dashboardcomponent/ImportBlood";
+import AddBloodDonors from "../../../../components/admin/dashboardcomponent/AddBloodDonors";
+import "./blooddonor.css";
+// import ViewBloodRequest from "@/components/admin/Actions/ViewBloodRequest";
+const BloodDonorPage = () => {
+  const [viewRequestOpen, setViewRequest]= useState(false);
   const [isModelOpen, setIsModelOpen] = useState(false);
-  const [isAddBloodBankOpened, setIsAddBloodBankOpened] = useState(false);
+  const [isAddBloodDonorOpened, setIsAddBloodDonorOpened] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   
-  interface BloodBank {
+  interface Blooddonor {
     id: number;
     name: string;
     mobile:number;
@@ -30,7 +31,7 @@ const BloodBanksPage = () => {
     
   }
 
-  const bloodBanks: BloodBank[] = [
+  const blooddonor: Blooddonor[] = [
     {
       id: 31,
       name: "Central Blood Bank",
@@ -171,8 +172,8 @@ const BloodBanksPage = () => {
   
   const indexOfLastEntry = currentPage * entriesPerPage;
   const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
-  const currentEntries = bloodBanks.slice(indexOfFirstEntry, indexOfLastEntry);
-  const totalPages = Math.ceil(bloodBanks.length / entriesPerPage);
+  const currentEntries = blooddonor.slice(indexOfFirstEntry, indexOfLastEntry);
+  const totalPages = Math.ceil(blooddonor.length / entriesPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -184,24 +185,24 @@ const BloodBanksPage = () => {
   };
 
   return (
-    <div className="blood-bank-container">
-      {/* <DashboardNav/> */}
-      <div className="manage-blood-bank-div">
+    <div className="blood-donor-container">
+     
+      <div className="manage-blood-donor-div">
         <h1>Manage Blood Donors</h1>
-        <div className="btn-import-and-add">
-          <button className="import" onClick={() => setIsModelOpen(true)}>
+        <div className="btn-import-and-add-blood-donor">
+          <button className="import-blood-donor" onClick={() => setIsModelOpen(true)}>
             <TbFileImport size={18} />
             Import from Excel
           </button>
-          <button className="add" onClick={() => setIsAddBloodBankOpened(true)}>
+          <button className="add-blood-donor" onClick={() => setIsAddBloodDonorOpened(true)}>
             <IoAddOutline size={18} />
             Add Blood Donor
           </button>
         </div>
       </div>
 
-      <div className="table-controls">
-        <div className="show-entries">
+      <div className="table-controls-blood-donor">
+        <div className="show-entries-blood-donor">
           <span>Show</span>
           <select 
             value={entriesPerPage}
@@ -216,82 +217,82 @@ const BloodBanksPage = () => {
           <span>entries</span>
         </div>
 
-        <div className="search-box">
+        <div className="search-box-blood-donor">
           <label>Search: </label>
           <input 
             type="text" 
-            placeholder="Search blood banks..." 
+            placeholder="Search blood donor..." 
             
           />
         </div>
       </div>
 
-      <div className="table-scroll-container">
-        <table className="blood-bank-table">
+      <div className="table-scroll-container-blood-donor">
+        <table className="blood-donor-table">
           <thead>
             <tr>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>ID</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>Name</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>mobile</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>City</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>Province</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>BG</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>Points</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>Views</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>Type</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>Status</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-donor-table-header-cell">
                   <h1>Actions</h1>
                 </div>
               </th>
@@ -311,19 +312,19 @@ const BloodBanksPage = () => {
                 <td>{bank.type}</td>
                
                 <td>
-                  <span className={`status-badge ${bank.status.toLowerCase()}`}>
+                  <span className={`blood-donor-status-badge ${bank.status.toLowerCase()}`}>
                     {bank.status}
                   </span>
                 </td>
                 <td>
-                  <div className="action-buttons">
-                    <button className="action-btn view-btn" title="View">
+                  <div className="blood-donor-action-buttons">
+                    <button className="blood-donor-action-btn view-btn" title="View" onClick={()=>setViewRequest(true)}>
                       <GrView size={14} />
                     </button>
-                    <button className="action-btn edit-btn" title="Edit">
-                      <TiEdit size={16} />
+                    <button className="blood-donor-action-btn edit-btn" title="Edit" onClick={()=>setViewRequest(true)}>
+                      <TiEdit size={16} onClick={() => setIsAddBloodDonorOpened(true)}/>
                     </button>
-                    <button className="action-btn delete-btn" title="Delete">
+                    <button className="blood-donor-action-btn delete-btn" title="Delete">
                       <MdDelete size={16} />
                     </button>
                   </div>
@@ -334,11 +335,11 @@ const BloodBanksPage = () => {
         </table>
       </div>
 
-      <div className="table-footer">
-        <div className="entries-info">
-          Showing {indexOfFirstEntry + 1} to {Math.min(indexOfLastEntry, bloodBanks.length)} of {bloodBanks.length} entries
+      <div className="blood-donor-table-footer">
+        <div className="blood-donor-entries-info">
+          Showing {indexOfFirstEntry + 1} to {Math.min(indexOfLastEntry, blooddonor.length)} of {blooddonor.length} entries
         </div>
-        <div className="pagination">
+        <div className="blood-donor-pagination">
           <button 
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
@@ -367,14 +368,19 @@ const BloodBanksPage = () => {
 
       {/* Modals */}
       {isModelOpen && (
-        <ImportBloodBanks onClose={() => setIsModelOpen(false)} />
+        <Importblooddonor onClose={() => setIsModelOpen(false)} />
       )}
       
-      {isAddBloodBankOpened && (
-        <AddBloodBank onClose={() => setIsAddBloodBankOpened(false)} />
+      {isAddBloodDonorOpened && (
+        <AddBloodDonors onClose={() => setIsAddBloodDonorOpened(false)} />
       )}
+    {/* {viewRequestOpen&& (
+      <ViewBloodRequest onClose={()=>setViewRequest(false)}/>
+    )} */}
     </div>
+    
+ 
   );
 };
 
-export default BloodBanksPage;
+export default BloodDonorPage;

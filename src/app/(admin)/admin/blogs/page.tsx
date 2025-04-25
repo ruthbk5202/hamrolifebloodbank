@@ -55,7 +55,7 @@ const AdminBlogs = () => {
 
   return (
     <div className="blood-bank-container">
-      <DashboardNav/>
+      {/* <DashboardNav/> */}
       <div className="manage-blood-bank-div">
         <h1>Manage Blogs</h1>
         <div className="btn-import-and-add">

@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import "./partners.css";
+import "./partner.css";
 
-const Partners: FC = () => {
+const Partner: FC = () => {
   const partners = [
     {
       name: 'Ncell',
@@ -45,4 +45,4 @@ const Partners: FC = () => {
   );
 };
 
-export default Partners;
+export default Partner;

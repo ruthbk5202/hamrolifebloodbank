@@ -8,9 +8,10 @@ export default function UserLayout({
   }) {
     return (
       <>
-        <Nav />  {/* User-specific navbar */}
+        <Nav /> 
         <main>{children}</main>
-        <Footer />  {/* User-specific footer */}
+        <Footer />
       </>
     );
   }
+  

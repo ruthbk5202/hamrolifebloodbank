@@ -7,16 +7,19 @@ import { GrView } from "react-icons/gr";
 import { TiEdit } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
-import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
-import "../bloodbanks/bloodbanks.css";
-import DashboardNav from "@/components/admin/dashboardcomponent/DashboardNav";
+import EditBloodRequest from "../../../../components/admin/Actions/EditBloodRequest";
+import "./adminbloodrequest.css";
+
+// import ViewBloodRequest from "@/components/admin/Actions/ViewBloodRequest";
+
 const BloodRequestPage = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
-  const [isAddBloodBankOpened, setIsAddBloodBankOpened] = useState(false);
+  const [isAddBloodRequestOpened, setIsAddBloodRequestOpened] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
+ const [isRequestView, setRequestView]=useState(false);
   
-  interface BloodBank {
+  interface BloodRequest {
     id: number;
      fullname: string;
     mobile: number;
@@ -28,7 +31,7 @@ const BloodRequestPage = () => {
     status: "Active" | "Inactive";
   }
 
-  const bloodBanks: BloodBank[] = [
+  const bloodrequest: BloodRequest[] = [
     {
       id: 31,
       fullname: "Central Blood Bank",
@@ -308,8 +311,8 @@ const BloodRequestPage = () => {
   
   const indexOfLastEntry = currentPage * entriesPerPage;
   const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
-  const currentEntries = bloodBanks.slice(indexOfFirstEntry, indexOfLastEntry);
-  const totalPages = Math.ceil(bloodBanks.length / entriesPerPage);
+  const currentEntries = bloodrequest.slice(indexOfFirstEntry, indexOfLastEntry);
+  const totalPages = Math.ceil(bloodrequest.length / entriesPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -321,24 +324,24 @@ const BloodRequestPage = () => {
   };
 
   return (
-    <div className="blood-bank-container">
-      {/* <DashboardNav/> */}
-      <div className="manage-blood-bank-div">
+    <div className="blood-request-container">
+
+      <div className="manage-blood-request-div">
         <h1>Manage Blood Requests</h1>
-        <div className="btn-import-and-add">
-          <button className="import" onClick={() => setIsModelOpen(true)}>
+        <div className="blood-request-btn-import-and-add">
+          <button className="blood-request-import" onClick={() => setIsModelOpen(true)}>
             <TbFileImport size={18} />
             Import from Excel
           </button>
-          <button className="add" onClick={() => setIsAddBloodBankOpened(true)}>
+          <button className="blood-request-add" onClick={() => setIsAddBloodRequestOpened(true)}>
             <IoAddOutline size={18} />
             Add Blood Request
           </button>
         </div>
       </div>
 
-      <div className="table-controls">
-        <div className="show-entries">
+      <div className="blood-request-table-controls">
+        <div className="blood-request-show-entries">
           <span>Show</span>
           <select 
             value={entriesPerPage}
@@ -353,64 +356,64 @@ const BloodRequestPage = () => {
           <span>entries</span>
         </div>
 
-        <div className="search-box">
+        <div className="blood-request-search-box">
           <label>Search: </label>
           <input 
             type="text" 
-            placeholder="Search blood banks..." 
+            placeholder="Search..." 
             
           />
         </div>
       </div>
 
-      <div className="table-scroll-container">
-        <table className="blood-bank-table">
+      <div className="blood-request-table-scroll-container">
+        <table className="blood-request-table">
           <thead>
             <tr>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>ID</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>Full Name</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>Mobile</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>BG</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>Bags</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>City</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>Province</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>Hospital</h1>
                   <RiArrowUpDownLine />
                 </div>
@@ -418,13 +421,13 @@ const BloodRequestPage = () => {
               
               
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>Status</h1>
                   <RiArrowUpDownLine />
                 </div>
               </th>
               <th>
-                <div className="table-header-cell">
+                <div className="blood-request-table-header-cell">
                   <h1>Actions</h1>
                 </div>
               </th>
@@ -443,19 +446,20 @@ const BloodRequestPage = () => {
                 <td>{bank.hospital}</td>
                
                 <td>
-                  <span className={`status-badge ${bank.status.toLowerCase()}`}>
+                  <span className={`blood-request-status-badge ${bank.status.toLowerCase()}`}>
                     {bank.status}
                   </span>
                 </td>
                 <td>
-                  <div className="action-buttons">
-                    <button className="action-btn view-btn" title="View">
+                  <div className="blood-request-action-buttons">
+                    <button className="blood-request-action-btn view-btn" title="View"  onClick={()=>setRequestView(true)}>
                       <GrView size={14} />
+
                     </button>
-                    <button className="action-btn edit-btn" title="Edit">
-                      <TiEdit size={16} />
+                    <button className="blood-request-action-btn edit-btn" title="Edit" >
+                      <TiEdit size={16}  onClick={()=>setIsAddBloodRequestOpened(true)}/>
                     </button>
-                    <button className="action-btn delete-btn" title="Delete">
+                    <button className="blood-request-action-btn delete-btn" title="Delete">
                       <MdDelete size={16} />
                     </button>
                   </div>
@@ -466,11 +470,11 @@ const BloodRequestPage = () => {
         </table>
       </div>
 
-      <div className="table-footer">
-        <div className="entries-info">
-          Showing {indexOfFirstEntry + 1} to {Math.min(indexOfLastEntry, bloodBanks.length)} of {bloodBanks.length} entries
+      <div className="blood-request-table-footer">
+        <div className="blood-request-entries-info">
+          Showing {indexOfFirstEntry + 1} to {Math.min(indexOfLastEntry, bloodrequest.length)} of {bloodrequest.length} entries
         </div>
-        <div className="pagination">
+        <div className="blood-request-pagination">
           <button 
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
@@ -497,15 +501,18 @@ const BloodRequestPage = () => {
         </div>
       </div>
 
-      {/* Modals */}
       {isModelOpen && (
         <ImportBloodBanks onClose={() => setIsModelOpen(false)} />
       )}
       
-      {isAddBloodBankOpened && (
-        <AddBloodBank onClose={() => setIsAddBloodBankOpened(false)} />
-      )}
-    </div>
+      {isAddBloodRequestOpened && (
+        <EditBloodRequest onClose={() => setIsAddBloodRequestOpened(false)} />
+      )}{
+        // isRequestView && (
+        //   // <ViewBloodRequest onClose={()=>setRequestView(false)}/>
+        // )
+      }
+   </div>
   );
 };
 

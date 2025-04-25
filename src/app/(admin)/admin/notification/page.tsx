@@ -56,7 +56,7 @@ const AdminNotification = () => {
 
   return (
     <div className="blood-bank-container">
-      <DashboardNav/>
+      {/* <DashboardNav/> */}
       <div className="manage-blood-bank-div">
         <h1>Notifications</h1>
         <div className="btn-import-and-add">

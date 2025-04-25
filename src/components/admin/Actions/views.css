@@ -1,0 +1,149 @@
+.view-model {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.blood-bank-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #cf3d36;
+  color: white;
+  border-radius: 8px 8px 0px 0px;
+  padding: 20px 0;
+}
+
+.view-model-container {
+  background-color: white;
+  border-radius: 8px;
+  width: 600px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.view-model-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.view-model-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.close {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.close:hover {
+  color: #333;
+}
+
+.view-model-body {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 12px;
+}
+
+.blood-bank-id h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.region-section h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: white;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.info-grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.grid-add {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding:10px;
+}
+
+.added-by, 
+.views, 
+.contact {
+  padding: 12px;
+  flex: 1;
+  text-align: center;
+}
+
+.added-by, 
+.views {
+  border-right: 1px solid #eee;
+}
+
+.grid-row {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.grid-row:last-child {
+  border-bottom: none;
+}
+
+.grid-cell {
+  padding: 12px;
+  flex: 1;
+}
+
+.grid-cell:first-child {
+  font-weight: bold;
+  color: #333;
+  flex: 0.5;
+}
+
+.grid-cell:nth-child(2) {
+  flex: 0.1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .grid-add {
+    flex-direction: column;
+  }
+  
+  .added-by, 
+  .views {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .grid-row {
+    flex-direction: column;
+  }
+  
+  .grid-cell {
+    padding: 8px 12px;
+  }
+  
+  .grid-cell:nth-child(2) {
+    display: none;
+  }
+}

@@ -24,7 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-/* Admin Panel Base Styles */
+/*Admin Panel Base Styles
 .admin-container {
   display: flex;
   min-height: 100vh;
@@ -32,10 +32,10 @@ body {
 
 .admin-content {
   flex: 1;
-  margin-left: 250px; /* Match sidebar width */
+  margin-left: 250px; /* Match sidebar width 
   transition: margin 0.3s;
 }
 
 .admin-content.sidebar-collapsed {
   margin-left: 70px;
-}
+} */

@@ -1,0 +1,128 @@
+.add-donor-model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .add-donor-model-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-width: 100%;
+    max-height: 90vh; /* Limit maximum height */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-donor-model-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0; /* Prevent header from shrinking */
+  }
+  
+  .add-donor-model-header h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .donor-close {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #888;
+  }
+  
+  .donor-close:hover {
+    color: #333;
+  }
+  
+  .add-donor-model-body {
+    padding: 0 20px 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    flex-grow: 1; /* Take remaining space */
+  }
+  
+  .add-donor-model-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: min-content; /* Prevent form from growing */
+  }
+  
+  .add-donor-model-body div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-donor-model-body label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .add-donor-model-body input[type="text"],
+  .add-donor-model-body input[type="email"],
+  .add-donor-model-body input[type="number"],
+  .add-donor-model-body input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  .add-donor-model-body input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  }
+  
+  .save-btn-blood-donor {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background: white;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .add-donor-save-btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .add-donor-save-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Custom scrollbar styling */
+  .add-donor-model-body::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .add-donor-model-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .add-donor-model-body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .add-donor-model-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

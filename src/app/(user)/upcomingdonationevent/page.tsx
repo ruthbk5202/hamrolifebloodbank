@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { GoogleMap, Marker } from '@react-google-maps/api';
+
 import { IoSearchSharp } from "react-icons/io5";
 import { BsDashLg } from "react-icons/bs";
 import "./upcomingevents.css";
@@ -176,3 +176,4 @@ const UpComingEvents = () => {
 };
 
 export default UpComingEvents;
+

@@ -1,5 +1,5 @@
 
- .model {
+.edit-blood-request-model {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,20 +10,24 @@
     justify-content: center;
     align-items: center;
     z-index: 1000; 
+    overflow:auto ;
    }
    
   
-   .model-container {
+   .edit-blood-request-model-container {
+      display: flex;
+      flex-direction: column;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     width: 600px;
     max-width: 90%;
+    max-height:90vh;
     padding: 20px;
    }
    
   
-   .model-header {
+   .edit-blood-request-model-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,30 +37,33 @@
    }
    
   
-   .model-header h1 {
+   .edit-blood-request-model-header h1 {
     margin: 0;
     font-size: 1.5em;
    }
    
   
-   .close {
+   .edit-blood-request-close {
     font-size: 1.5em;
     cursor: pointer;
     color: #888;
    }
    
   
-   .close:hover {
+   .edit-blood-request-close:hover {
     color: #333;
    }
    
   
-   .model-body {
+   .edit-blood-request-model-body {
+ 
     padding: 0 10px;
+    overflow-y: auto; 
+    max-height: calc(90vh - 150px);
    }
    
   
-   .model-body form {
+   .edit-blood-request-model-body form {
    display:flex;
    flex-direction: column;
     gap: 15px;
@@ -68,21 +75,21 @@
       align-items: center;
    }
   
-   .model-body div {
+   .edit-blood-request-model-body div {
     display: flex;
     flex-direction: column;
    }
    
   
-   .model-body label {
+   .edit-blood-request-model-body label {
     margin-bottom: 5px;
     font-weight: bold;
    }
    
   
-   .model-body input[type="text"],
-   .model-body input[type="email"],
-   .model-body input[type="number"] {
+   .edit-blood-request-model-body input[type="text"],
+   .edit-blood-request-model-body input[type="email"],
+   .edit-blood-request-model-body input[type="number"] {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -91,9 +98,9 @@
    }
    
   
-   .model-body input[type="text"]:focus,
-   .model-body input[type="email"]:focus,
-   .model-body input[type="number"]:focus {
+   .edit-blood-request-model-body input[type="text"]:focus,
+   .edit-blood-request-model-body input[type="email"]:focus,
+   .edit-blood-request-model-body input[type="number"]:focus {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
@@ -101,14 +108,14 @@
    
   
   
-   .save-btn{
+   .edit-blood-request-save-btn{
       display:flex;
       align-items:center;
       justify-content:center;
    }
   
    
-   .add-blood-bank-save-btn{
+   .edit-blood-request-save-btn{
       display: flex;
       
       padding:4px;

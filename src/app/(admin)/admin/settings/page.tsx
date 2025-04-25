@@ -31,9 +31,9 @@ const Settings = () => {
     return (
         <div>
             <div className='dashboard-settings'>
-                <h1>Dashboard</h1>
+                {/* <h1>Dashboard</h1>
                 <p>Settings</p>
-                <a href="/">Home</a>/<a href="/settings">Settings</a>
+                <a href="/">Home</a>/<a href="/settings">Settings</a> */}
             </div>
             <div className='settings-dashboard-container'>
                 <div>

@@ -1,75 +1,53 @@
+.admin-navbar {
+  display: flex;
+  padding: 0 1rem;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 250px; 
+  right: 0;
+  z-index: 10;
+  transition: left 0.3s ease, width 0.3s ease; 
+}
 
 
-  
-  
-  .navbar-left {
-    flex: 1;
-  }
-  
+.sidebar-closed .admin-navbar {
+  left: 0;
+  width: 100%; 
+}
 
-  .navbar-center {
-    flex: 3;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-  
+.sidebar-open .admin-navbar {
+  left: 500px;
+  width: calc(100%-250px); 
+}
 
-  .navbar-right {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
- 
-  .icon-button,
-  .nav-button,
-  .notification-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px 12px;
-  }
-  
-  
-  .nav-link {
-    color: #333;
-    text-decoration: none;
-    padding: 8px 12px;
-  }
-  
- 
-  .nav-link:hover,
-  .nav-button:hover {
-    background: #f0f0f0;
-    border-radius: 4px;
-  }
- 
-  .notification-button {
-    position: relative;
-  }
-  
-  .notification-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: red;
-    color: white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .admin-navbar {
-    display: flex;
-    padding: 1rem;
-    background: white;
-    border-bottom: 1px solid #e0e0e0;
-    align-items: center;
-    height: 0px; 
-    flex-shrink: 0;
-    z-index: 10; 
-  }
+.admin-side-navbar {
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0; 
+  bottom: 0;
+  transition: transform 0.3s ease;
+  z-index: 9;
+}
+
+.sidebar-closed .admin-side-navbar {
+  transform: translateX(-100%);
+}
+
+/* Content area adjustment */
+.admin-page-content {
+  margin-top: 60px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-open .admin-page-content {
+  margin-left: 0px;
+}
+
+.sidebar-closed .admin-page-content {
+  margin-left: 0;
+}

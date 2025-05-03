@@ -62,9 +62,9 @@ const Nav = () => {
       }
     }
   };
-  const handleNavigateToLogin=()=>{
-    router.push("/login");
-  }
+  // const handleNavigateToLogin=()=>{
+  //   router.push("/login");
+  // }
 
   return (
     <nav className="navbar">
@@ -202,12 +202,12 @@ const Nav = () => {
             >
               Request Blood
             </button>
-            <button
+            {/* <button
               className="request-btn"
               onClick={handleNavigateToLogin}
             >
               Login
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

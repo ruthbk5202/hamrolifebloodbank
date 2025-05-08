@@ -9,7 +9,7 @@ import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
 import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
 import BloodBankEdit from "@/components/admin/Actions/BoodBankEdit";
-import "./bloodBanks.css";
+import "./bloodbanks.css";
 
 import Views from "@/components/admin/Actions/Views";
 

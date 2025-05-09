@@ -305,7 +305,16 @@ const BloodBanksPage = () => {
                   <input type="text" placeholder="City" />
                 </td>
                 <td>
-                  <input type="text" placeholder="Province" />
+                  <select>
+                    <option value= "" selected disabled> Select Province</option>
+                    <option value= "Province1"> Province 1</option>
+                    <option value= "Province2"> Province 2</option>
+                    <option value= "Province3"> Province 3</option>
+                    <option value= "Province4"> Province 4</option>
+                    <option value= "Province5"> Province 5</option>
+                    <option value= "Province6"> Province 6</option>
+                    <option value= "Province7"> Province 7</option>
+                  </select>
                 </td>
 
                 <td>
@@ -362,7 +371,6 @@ const BloodBanksPage = () => {
           </div>
         </div>
 
-        {/* Modals */}
         {isModelOpen && (
           <ImportBloodBanks onClose={() => setIsModelOpen(false)} />
         )}

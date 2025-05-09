@@ -8,7 +8,7 @@ import { TiEdit } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import ImportBloodBanks from "../../../../components/admin/dashboardcomponent/ImportBlood";
 import AddBloodBank from "../../../../components/admin/dashboardcomponent/AddBloodBank";
-import DashboardNav from "@/components/admin/dashboardcomponent/DashboardNav";
+
 import "./appuser.css";
 const AppUsersPage = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
@@ -249,14 +249,11 @@ const AppUsersPage = () => {
 
   return (
     <div className="blood-bank-container">
-      <DashboardNav/>
+    
       <div className="manage-blood-bank-div">
         <h1>Manage App Users</h1>
         <div className="btn-import-and-add">
-          {/* <button className="import" onClick={() => setIsModelOpen(true)}>
-            <TbFileImport size={18} />
-            Import from Excel
-          </button> */}
+       
           <button className="add" onClick={() => setIsAddBloodBankOpened(true)}>
             <IoAddOutline size={18} />
             Add App Users
@@ -365,9 +362,7 @@ const AppUsersPage = () => {
                 </td>
                 <td>
                   <div className="action-buttons">
-                    {/* <button className="action-btn view-btn" title="View">
-                      <GrView size={14} />
-                    </button> */}
+                   
                     <button className="action-btn edit-btn" title="Edit">
                       <TiEdit size={16} />
                     </button>

@@ -119,4 +119,32 @@
       border-radius: 4px;
       margin-top:32px;
    }
-  
+ 
+ 
+   #province {
+      
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      background-color: white;
+      
+    
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    
+   
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+    }
+    
+   
+    #province:focus {
+     
+      color: transparent;
+      box-shadow: 0 0 0  #3498db;
+    }

@@ -67,7 +67,16 @@ const AddBloodBank: React.FC<AddBloodBankProps> = ({ onClose }) => {
             <div>
               {" "}
               <label>Status</label>
-              <input type="text" placeholder="active"></input>
+             <select name="status"id="status">
+
+
+              <option value="active">
+Active
+              </option>
+              <option value="inactive">
+                inactive
+              </option>
+              </select>
             </div>
           </form>
           <div className="save-btn">

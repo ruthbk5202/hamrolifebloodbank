@@ -1,150 +1,204 @@
+.model {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
- .model {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; 
-   }
-   
-  
-   .model-container {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    width: 600px;
-    max-width: 90%;
-    padding: 20px;
-   }
-   
-  
-   .model-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 20px;
-   }
-   
-  
-   .model-header h1 {
-    margin: 0;
-    font-size: 1.5em;
-   }
-   
-  
-   .close {
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #888;
-   }
-   
-  
-   .close:hover {
-    color: #333;
-   }
-   
-  
-   .model-body {
-    padding: 0 10px;
-   }
-   
-  
-   .model-body form {
-   display:flex;
-   flex-direction: column;
-    gap: 15px;
-    width:100%;
-    /* align-items: center; */
-   }
-   button{
-      display: flex;
-      align-items: center;
-   }
-  
-   .model-body div {
-    display: flex;
-    flex-direction: column;
-   }
-   
-  
-   .model-body label {
-    margin-bottom: 5px;
-    font-weight: bold;
-   }
-   
-  
-   .model-body input[type="text"],
-   .model-body input[type="email"],
-   .model-body input[type="number"] {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1em;
-    width:100%;
-   }
-   
-  
-   .model-body input[type="text"]:focus,
-   .model-body input[type="email"]:focus,
-   .model-body input[type="number"]:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
-   }
-   
-  
-  
-   .save-btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-   }
-  
-   
-   .add-blood-bank-save-btn{
-      display: flex;
-      
-      padding:4px;
-      background-color: #3498db;
-      color:white;
-      width:fit-content;
-   
-      border-radius: 4px;
-      margin-top:32px;
-   }
- 
- 
-   #province {
-      
-      width: 100%;
-      padding: 8px 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      background-color: white;
-      
-    
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    
-   
-      background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-    }
-    
-   
-    #province:focus {
-     
-      color: transparent;
-      box-shadow: 0 0 0  #3498db;
-    }
+.model-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  max-width: 90%;
+  padding: 20px;
+}
+
+.model-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.model-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.close {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #888;
+}
+
+.close:hover {
+  color: #333;
+}
+
+.model-body {
+  padding: 0 10px;
+}
+
+.model-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  /* align-items: center; */
+}
+button {
+  display: flex;
+  align-items: center;
+}
+
+.model-body div {
+  display: flex;
+  flex-direction: column;
+}
+
+.model-body label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.model-body input[type="text"],
+.model-body input[type="email"],
+.model-body input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+}
+
+.model-body input[type="text"]:focus,
+.model-body input[type="email"]:focus,
+.model-body input[type="number"]:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-blood-bank-save-btn {
+  display: flex;
+
+  padding: 4px;
+  background-color: #3498db;
+  color: white;
+  width: fit-content;
+
+  border-radius: 4px;
+  margin-top: 32px;
+}
+
+#province {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+#province:focus {
+  color: #333;
+border:1px solid #3498db;
+}
+#province option {
+  color: #333;
+}
+#district{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+#district:focus {
+  color: #333;
+border:1px solid #3498db;
+}
+#district option {
+  color: #333;
+}
+#city{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+#city:focus {
+  color: #333;
+border:1px solid #3498db;
+}
+#city option {
+  color: #333;
+}
+#status{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+#status:focus {
+  color: #333;
+border:1px solid #3498db;
+}
+#status option {
+  color: #333;
+}

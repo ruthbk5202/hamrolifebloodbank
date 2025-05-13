@@ -76,7 +76,7 @@ const AddBloodDonors: React.FC<AddBloodDonorsProps> = ({ onClose }) => {
         setIsSubmitting(true);
         
         try {
-            const response = await fetch('http://127.0.0.1:800/api/V1/admin/bloodDonor', {
+            const response = await fetch('http://127.0.0.1:8000/api/V1/admin/bloodDonor', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -94,7 +94,7 @@ const AddBloodDonors: React.FC<AddBloodDonorsProps> = ({ onClose }) => {
           }),
         }
       );
-      console.log("This is the response from the server", response);
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || "Failed to submit form");
@@ -117,7 +117,7 @@ const AddBloodDonors: React.FC<AddBloodDonorsProps> = ({ onClose }) => {
           bloodGroup: "",
           donorType: "",
           gender: "",
-          status: "Active",
+          status: "active",
         });
         onClose();
       } else {

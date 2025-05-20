@@ -1,3 +1,3 @@
-import { nextConfig } from "@/app/middleware";
+// import { nextConfig } from "@/app/middleware";
 
-export default nextConfig;
+// export default nextConfig;
